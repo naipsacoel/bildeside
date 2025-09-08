@@ -1,44 +1,94 @@
 :root {
-  --bg: #f8fafc;
-  --text: #0f172a;
-  --brand: #2563eb;
+  --bg: #181a20;
+  --bg-alt: #23262f;
+  --text: #f1f5f9;
+  --text-muted: #94a3b8;
+  --brand: #6366f1;
+  --card: #23262f;
+  --border: #2d3142;
 }
 
 body {
   margin: 0;
-  font-family: system-ui, sans-serif;
+  font-family: 'Segoe UI', system-ui, sans-serif;
   background: var(--bg);
   color: var(--text);
+  min-height: 100vh;
 }
 
 header, footer {
   text-align: center;
-  padding: 1rem;
-  background: white;
-  border-bottom: 1px solid #e2e8f0;
+  padding: 2rem 1rem;
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+}
+
+header h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+  color: var(--brand);
+}
+
+header p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
 }
 
 footer {
-  border-top: 1px solid #e2e8f0;
+  border-top: 1px solid var(--border);
   margin-top: 2rem;
+  font-size: 1rem;
+  color: var(--text-muted);
+  background: var(--bg-alt);
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.intro {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.10);
+}
+
+.intro h2 {
+  margin-top: 0;
+  color: var(--brand);
+}
+
+.intro p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
 }
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
-  padding: 1rem;
-  max-width: 960px;
-  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  padding: 1rem 0;
 }
 
 .gallery img {
   width: 100%;
-  border-radius: 12px;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18);
   cursor: pointer;
-  transition: transform 0.2s ease-in-out;
+  transition: 
+    transform 0.2s cubic-bezier(.4,2,.6,1),
+    box-shadow 0.2s cubic-bezier(.4,2,.6,1);
+  background: var(--bg-alt);
+  border: 2px solid var(--border);
 }
 
 .gallery img:hover {
-  transform: scale(1.05);
+  transform: scale(1.04) rotate(-1deg);
+  box-shadow: 0 8px 32px 0 rgba(99,102,241,0.18);
+  border-color: var(--brand);
 }
